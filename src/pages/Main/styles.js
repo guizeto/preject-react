@@ -5,13 +5,34 @@ export const Form = styled.form`
   display: flex;
   flex-direction: row;
 
-  input {
+  /* input {
     flex: 1;
     border: 1px solid #eee;
     padding: 10px 15px;
     border-radius: 4px;
     font-size: 16px;
-  }
+  } */
+
+  ${props =>
+    props.error
+      ? css`
+          input {
+            flex: 1;
+            border: 1px solid #d1462f;
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-size: 16px;
+          }
+        `
+      : css`
+          input {
+            flex: 1;
+            border: 1px solid #eee;
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-size: 16px;
+          }
+        `}
 `;
 
 const rotate = keyframes`
@@ -22,6 +43,11 @@ const rotate = keyframes`
   to {
     transform: rotate(360deg);
   }
+`;
+
+export const Error = styled.span`
+  color: #d1462f;
+  font-size: 12px;
 `;
 
 export const SubmitButton = styled.button.attrs(props => ({
